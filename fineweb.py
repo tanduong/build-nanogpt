@@ -8,6 +8,12 @@ Will save shards to the local directory "edu_fineweb10B".
 """
 
 import os
+
+# Set the HF_DATASETS_CACHE environment variable to the absolute path of ./cache
+cache_dir = os.path.abspath('./cache')
+os.environ['HF_DATASETS_CACHE'] = cache_dir
+os.makedirs(cache_dir, exist_ok=True)
+
 import multiprocessing as mp
 import numpy as np
 import tiktoken
